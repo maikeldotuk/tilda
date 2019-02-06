@@ -1,30 +1,30 @@
 {
 	"manifest_version": 2,
-  "name": "Zuckerbox",
-  "version": "1.4",
-	"description": "A Facebook cleaner with simplicity at its core",
+  "name": "Tilda",
+  "version": "0.1",
+	"description": "An automation tool for Linkedin messages",
   "icons": {
 		"48": "icons/nowords.png"
 	},
 	"permissions": [
 		"webNavigation",
-		"activeTab"
+		"activeTab",
+    "storage",
+    "declarativeContent"
 	],
 	"content_scripts": [
 	    {
-      "matches": ["*://*.facebook.com/*"],
+      "matches": ["*://*.linkedin.com/*"],
 			"run_at": "document_idle",
-      "js": ["maikelify.js"]
+      "js": ["content.js"]
 	    }
 	],
+  "page_action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
 	"background": {
-		"scripts": ["background.js"]
-	},
-	"browser_action": {
-	  "default_icon": {
-	    "48": "icons/nowords.png"
-	  },
-	  "default_title": "Zuckerbox"
+		"scripts": ["back.js"]
 	},
   "web_accessible_resources": [
     "images/zucky.jpg"
